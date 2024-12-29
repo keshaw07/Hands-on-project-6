@@ -20,23 +20,18 @@ struct FramWorkGridView: View {
     var body: some View {
         
         NavigationView {
-            ScrollView {
-                
-                LazyVGrid (columns: viewModel.colunms) {
+            
+                List {
                     
                     ForEach(MockData.frameworks) { framwork in
-                        FramWorktitleView(framwork: framwork)
-                            .onTapGesture {
-                                viewModel.selectFramework = framwork
+                        NavigationLink( destination: DetailedFrameWorkView(framwork: framwork, isShowingDetailView: $viewModel.isShowingDetailView)){
+                            FramWorktitleView(framwork: framwork)
                         }
                     }
                 }
-            }
             .navigationTitle("Framwork")
-            .sheet(isPresented: $viewModel.isShowingDetailView) {
-                DetailedFrameWorkView(framwork: viewModel.selectFramework ?? MockData.sampleFramework, isShowingDetailView: $viewModel.isShowingDetailView)
-            }
         }
+        .accentColor(Color(.label))
     }
 }
 

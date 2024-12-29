@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailedFrameWorkView: View {
+    
     var framwork: Framework
     
     @Binding var isShowingDetailView: Bool
@@ -29,7 +30,7 @@ struct DetailedFrameWorkView: View {
 //            }
 //            .padding()
             
-            CancelButton(isShowingDetailView: $isShowingDetailView)
+           // CancelButton(isShowingDetailView: $isShowingDetailView)
             
             Spacer()
             
@@ -43,8 +44,12 @@ struct DetailedFrameWorkView: View {
             Button {
                 isShowingSafariview = true
             }label: {
-                AFButton(title: "Learn More")
+               // AFButton(title: "Learn More")
+                     Label("Leran More", systemImage: "book.fill")
             }
+            .buttonStyle(.bordered)
+            .controlSize(.large)
+            .tint(.red)
         }
         .fullScreenCover(isPresented: $isShowingSafariview, content: {
             SafariView(url: URL(string: framwork.urlString) ?? URL(string: "www.apple.com")!)

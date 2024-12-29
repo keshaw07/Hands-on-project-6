@@ -13,17 +13,18 @@ struct FramWorktitleView: View {
     
     var body: some View {
         
-        VStack {
+        HStack {
             Image(framwork.imageName)
                 .resizable()
-                .frame(width: 90, height: 90)
+                .frame(width: 70, height: 70)
             Text(framwork.name)
                 .font(.title2)
                 .fontWeight(.semibold)
                 .scaledToFit()
                 .minimumScaleFactor(0.5)
+                .padding()
         }
-        .padding()
+       
     }
 }
 
